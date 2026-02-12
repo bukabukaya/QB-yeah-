@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丘比健康食育｜小红书文案库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif;
+            background: linear-gradient(135deg, #ffe6e6 0%, #ffccd5 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2);
+            text-align: center;
+        }
+        
+        .header {
+            margin-bottom: 25px;
+        }
+        
+        .logo {
+            color: #ff6b6b;
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .logo i {
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .note-card {
+            background: #fff5f5;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: left;
+            border: 1px solid #ffe0e0;
+        }
+        
+        .style-tag {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .note-content {
+            font-size: 16px;
+            line-height: 1.6;
+            white-space: pre-line;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .hashtags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .hashtag {
+            background: rgba(255, 107, 107, 0.1);
+            color: #ff6b6b;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-next {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .btn-copy {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .btn-xhs {
+            background: #ff2442;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .counter {
+            color: #888;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        
+        .footer {
+            margin-top: 25px;
+            color: #aaa;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .note-card {
+                padding: 20px;
+            }
+            
+            .btn {
+                padding: 14px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-heart"></i>
+                丘比健康食育打卡
+            </div>
+            <div class="subtitle">精选小红书文案库｜一键复制发布</div>
+        </div>
+        
+        <div class="note-card">
+            <div class="style-tag" id="styleTag">元气少女风</div>
+            <div class="note-content" id="noteContent">
+💫今天和丘比一起健康打卡！Day 1/7
+#丘比食育计划 #健康饮食
+
+✨早餐：丘比沙拉+全麦吐司
+✨午餐：彩虹蔬果便当
+✨晚餐：轻食拌菜
+
+🧚‍♀️身体感觉：轻盈好多！
+📝心得：原来健康餐可以这么好吃~
+🔍#健康生活 #轻食打卡
+            </div>
+            <div class="hashtags" id="hashtags">
+                <span class="hashtag">#丘比食育计划</span>
+                <span class="hashtag">#健康饮食</span>
+                <span class="hashtag">#轻食打卡</span>
+            </div>
+        </div>
+        
+        <div class="counter">
+            <span id="currentIndex">1</span> / <span id="totalCount">10</span>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn btn-next" onclick="nextNote()">
+                <i class="fas fa-redo"></i>
+                下一篇文案
+            </button>
+            <button class="btn btn-copy" onclick="copyNote()">
+                <i class="far fa-copy"></i>
+                复制文案
+            </button>
+            <button class="btn btn-xhs" onclick="openXiaohongshu()">
+                <i class="fab fa-weixin"></i>
+                去小红书发布
+            </button>
+        </div>
+        
+        <div class="footer">
+            文案持续更新中 · 投稿请私信
+        </div>
+    </div>
+
+    <script>
+        // 文案库数据
+        const noteLibrary = [
+            {
+                style: "元气少女风",
+                content: `💫今天和丘比一起健康打卡！Day 1/7
+#丘比食育计划 #健康饮食
+
+✨早餐：丘比沙拉+全麦吐司
+✨午餐：彩虹蔬果便当
+✨晚餐：轻食拌菜
+
+🧚‍♀️身体感觉：轻盈好多！
+📝心得：原来健康餐可以这么好吃~
+🔍#健康生活 #轻食打卡`,
+                tags: ["#丘比食育计划", "#健康饮食", "#轻食打卡"]
+            },
+            {
+                style: "干货知识型",
+                content: `【丘比健康食育】7天挑战全记录
+从配料表开始，教你读懂健康
+
+✅ Day1重点：学会看食品标签
+✅ Day2重点：营养均衡配比
+✅ Day3重点：低卡酱料选择
+
+丘比的小秘密：他们的蛋黄酱用的是优质植物油
+#健康科普 #食品知识 #丘比食育计划`,
+                tags: ["#健康科普", "#食品知识", "#丘比食育计划"]
+            },
+            {
+                style: "美食博主风",
+                content: `丘比食育挑战｜健康餐也能颜值满分！
+
+📸今日作品：丘比轻食三拼
+🥗使用产品：丘比沙拉酱(甜味)
+🥒搭配技巧：颜色层次+酱料画圈
+
+✨秘诀：加一点柠檬汁更清新！
+#美食摄影 #健康餐摆盘 #丘比`,
+                tags: ["#美食摄影", "#健康餐摆盘", "#丘比"]
+            },
+            {
+                style: "打卡日记型",
+                content: `🌱#丘比食育日记 Day3
+晨重：-0.5kg ⬇️
+心情：☀️☀️☀️☀️
+
+今日亮点：用丘比酱做了低卡土豆泥
+发现超市的丘比专区有活动！
+明日计划：尝试新食谱
+#减脂日记 #每日打卡 #健康生活`,
+                tags: ["#减脂日记", "#每日打卡", "#健康生活"]
+            },
+            {
+                style: "VLOG脚本",
+                content: `🎬丘比食育VLOG脚本
+开头：今天参加丘比健康挑战啦！
+中间：展示食材准备+制作过程
+结尾：品尝分享+明日预告
+
+📌关键帧：丘比产品特写
+🎵背景音乐：轻快治愈系
+#vlog日常 #美食vlog #丘比挑战`,
+                tags: ["#vlog日常", "#美食vlog", "#丘比挑战"]
+            },
+            {
+                style: "对比评测",
+                content: `⚖️丘比沙拉酱对比测评
+传统款 vs 低脂款
+
+🌈颜色：传统偏黄，低脂偏白
+👅口感：传统更浓郁，低脂更清爽
+📊热量：低脂款减少30%
+
+总结：减脂期选低脂，追求口感选传统
+#测评 #沙拉酱 #丘比`,
+                tags: ["#测评", "#沙拉酱", "#丘比"]
+            },
+            {
+                style: "食谱分享",
+                content: `🍴丘比轻食食谱分享
+⭐️五星推荐：丘比鸡肉沙拉卷
+
+材料：鸡胸肉、生菜、番茄、丘比酱
+做法：1.鸡肉煮熟撕条 2.蔬菜切丝 3.混合加酱
+
+💡小贴士：冷藏后更美味！
+#食谱 #轻食食谱 #丘比美食`,
+                tags: ["#食谱", "#轻食食谱", "#丘比美食"]
+            },
+            {
+                style: "活动安利",
+                content: `🔥发现宝藏活动！丘比健康食育
+📍参与方式：小红书打卡7天
+🎁福利：完成有礼包赠送
+
+我参加的理由：
+1. 健康知识学习
+2. 免费食谱获取
+3. 社群互相监督
+
+快来一起打卡！ #活动推荐 #健康挑战`,
+                tags: ["#活动推荐", "#健康挑战", "#丘比"]
+            },
+            {
+                style: "心得感悟",
+                content: `💭参加丘比食育的7天感悟
+以前：吃饭只为填饱肚子
+现在：学会享受健康饮食
+
+最大的改变：
+1. 更关注食品成分
+2. 养成记录习惯
+3. 认识了一群小伙伴
+
+感谢@丘比官方 的活动！ #成长记录 #心得分享`,
+                tags: ["#成长记录", "#心得分享", "#丘比"]
+            },
+            {
+                style: "邀请挑战",
+                content: `👯‍♀️挑战接力！@你的好友
+丘比健康食育7天挑战
+
+📅时间：从明天开始
+🎯目标：每天分享健康一餐
+🤝规则：完成打卡@下一位
+
+我挑战：@好友1 @好友2 @好友3
+你们敢接受挑战吗？ #挑战接力 #好友挑战`,
+                tags: ["#挑战接力", "#好友挑战", "#丘比食育"]
+            }
+        ];
+
+        // 当前显示的文案索引
+        let currentIndex = 0;
+        const totalCount = noteLibrary.length;
+
+        // 初始化显示
+        document.getElementById('totalCount').textContent = totalCount;
+        updateNoteDisplay();
+
+        // 显示下一篇文案
+        function nextNote() {
+            currentIndex = (currentIndex + 1) % noteLibrary.length;
+            updateNoteDisplay();
+        }
+
+        // 更新显示内容
+        function updateNoteDisplay() {
+            const note = noteLibrary[currentIndex];
+            
+            document.getElementById('styleTag').textContent = note.style;
+            document.getElementById('noteContent').textContent = note.content;
+            document.getElementById('currentIndex').textContent = currentIndex + 1;
+            
+            // 更新标签
+            const hashtagsContainer = document.getElementById('hashtags');
+            hashtagsContainer.innerHTML = note.tags.map(tag => 
+                `<span class="hashtag">${tag}</span>`
+            ).join('');
+            
+            // 添加简单的动画效果
+            const noteCard = document.querySelector('.note-card');
+            noteCard.style.opacity = '0.8';
+            noteCard.style.transform = 'translateX(-10px)';
+            
+            setTimeout(() => {
+                noteCard.style.opacity = '1';
+                noteCard.style.transform = 'translateX(0)';
+            }, 150);
+        }
+
+        // 复制文案到剪贴板
+        function copyNote() {
+            const noteContent = document.getElementById('noteContent').textContent;
+            
+            navigator.clipboard.writeText(noteContent).then(() => {
+                // 显示复制成功反馈
+                const btn = document.querySelector('.btn-copy');
+                const originalHTML = btn.innerHTML;
+                
+                btn.innerHTML = '<i class="fas fa-check"></i> 已复制！';
+                btn.style.background = '#45a049';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalHTML;
+                    btn.style.background = '#4CAF50';
+                }, 2000);
+            }).catch(err => {
+                // 兼容旧版浏览器
+                const textArea = document.createElement('textarea');
+                textArea.value = noteContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                alert('文案已复制到剪贴板！');
+            });
+        }
+
+        // 打开小红书（尝试）
+        function openXiaohongshu() {
+            // 小红书App的URL Scheme
+            const xhsAppUrl = 'xiaohongshu://';
+            // 小红书网页版
+            const xhsWebUrl = 'https://www.xiaohongshu.com/';
+            
+            // 尝试打开App
+            window.location.href = xhsAppUrl;
+            
+            // 如果App没安装，3秒后跳转网页版
+            setTimeout(() => {
+                window.open(xhsWebUrl, '_blank');
+            }, 3000);
+            
+            // 复制文案到剪贴板的提醒
+            const noteContent = document.getElementById('noteContent').textContent;
+            navigator.clipboard.writeText(noteContent);
+            
+            // 显示提示
+            const btn = document.querySelector('.btn-xhs');
+            const originalHTML = btn.innerHTML;
+            
+            btn.innerHTML = '<i class="fas fa-external-link-alt"></i> 文案已复制！';
+            btn.style.background = '#ff5577';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+                btn.style.background = '#ff2442';
+            }, 3000);
+        }
+
+        // 键盘快捷键支持
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextNote();
+            } else if (e.key === 'c' || e.key === 'C') {
+                copyNote();
+            } else if (e.key === 'x' || e.key === 'X') {
+                openXiaohongshu();
+            }
+        });
+
+        // 页面加载时显示使用提示
+        window.onload = function() {
+            console.log('使用方法：\n→ 空格/右键：下一篇\n→ C键：复制文案\n→ X键：去小红书');
+        };
+    </script>
+</body>
+</html>
